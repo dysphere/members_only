@@ -501,9 +501,14 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
-.text-orange-600 {
-  --tw-text-opacity: 1;
-  color: rgb(234 88 12 / var(--tw-text-opacity));
+.flex {
+  display: flex;
+}
+.w-48 {
+  width: 12rem;
+}
+.flex-col {
+  flex-direction: column;
 }
 
 body {

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/output.css' />
+  </head>
+  <body>
+    <div>
+      <div></div>
+        <form action="/log-in" method="POST">
+            <div class="flex flex-col w-48">
+            <label for="username">Username</label>
+            <input name="username" placeholder="username" type="text" />
+            <label for="password">Password</label>
+            <input name="password" type="password" />
+            <button>Log In</button>
+            </div>
+          </form>
+    </div>
+  </body>
+</html>
