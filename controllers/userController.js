@@ -108,14 +108,25 @@ exports.user_secret_post = asyncHandler(async (req, res, next) =>
 
 exports.user_admin_get = asyncHandler(async (req, res, next) =>
 {
-    res.send("NOT IMPLEMENTED: User admin GET");
+    res.render("admin_form", {
+        title: "Admin Access",
+        user: req.user
+    })
 });
 
-exports.user_admin_post = [
-    asyncHandler(async (req, res, next) => {
-        res.send("NOT IMPLEMENTED: User admin POST")
-        })
-];
+exports.user_admin_post = asyncHandler(async (req, res, next) => {
+    if (req.body.admin === "admin") {
+        let user = await User.findByIdAndUpdate(
+            req.user.id, 
+            {$set: {admin: true}}, 
+            {new: true}
+        );
+        res.redirect("/");
+    }
+    else {
+        res.redirect("/");
+    }
+        });
 
 exports.user_logout_get = asyncHandler(async (req, res, next) =>
 {
