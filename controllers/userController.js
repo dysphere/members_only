@@ -85,14 +85,26 @@ exports.user_login_post = [
 
 exports.user_secret_get = asyncHandler(async (req, res, next) =>
 {
-    res.send("NOT IMPLEMENTED: User secret GET");
+    res.render("secret_form", {
+        title: "Secret Access",
+        user: req.user
+    })
 });
 
-exports.user_secret_post = [
-    asyncHandler(async (req, res, next) => {
-        res.send("NOT IMPLEMENTED: User secret POST")
-        })
-];
+exports.user_secret_post = asyncHandler(async (req, res, next) =>
+{
+    if (req.body.secret === "turing") {
+        let user = await User.findByIdAndUpdate(
+            req.user.id, 
+            {$set: {membership_status: true}}, 
+            {new: true}
+        );
+        res.redirect("/");
+    }
+    else {
+        res.redirect("/");
+    }
+});
 
 exports.user_admin_get = asyncHandler(async (req, res, next) =>
 {
