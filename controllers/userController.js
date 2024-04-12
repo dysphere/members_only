@@ -37,7 +37,7 @@ exports.user_create_post = [
 
         if (!errors.isEmpty()) {
             return res.render("user_create_form", {
-                title: "Sign Up Form",
+                title: "Sign Up",
                 errors: errors.array(),
               });
         }
@@ -71,14 +71,16 @@ exports.user_create_post = [
 
 exports.user_login_get = asyncHandler(async (req, res, next) =>
 {
-    res.send("NOT IMPLEMENTED: User login GET");
+    res.render("user_login_form", {
+        title: "Log In"
+    })
 });
 
 exports.user_login_post = [
-    asyncHandler(async (req, res, next) => {
-    res.send("NOT IMPLEMENTED: User login POST")
-    }
-)
+    passport.authenticate("local", {
+        successRedirect: "/",
+        failureRedirect: "/"
+      })
 ];
 
 exports.user_secret_get = asyncHandler(async (req, res, next) =>
@@ -102,3 +104,13 @@ exports.user_admin_post = [
         res.send("NOT IMPLEMENTED: User admin POST")
         })
 ];
+
+exports.user_logout_get = asyncHandler(async (req, res, next) =>
+{
+    req.logout((err) => {
+        if (err) {
+          return next(err);
+        }
+        res.redirect("/");
+      });
+});

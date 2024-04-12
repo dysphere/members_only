@@ -27,4 +27,6 @@ router.get('/admin', user_controller.user_admin_get);
 
 router.post('/admin', user_controller.user_admin_post);
 
+router.get('/log-out', user_controller.user_logout_get);
+
 module.exports = router;
