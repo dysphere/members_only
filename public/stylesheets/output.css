@@ -507,6 +507,9 @@ video {
 .w-48 {
   width: 12rem;
 }
+.flex-row {
+  flex-direction: row;
+}
 .flex-col {
   flex-direction: column;
 }

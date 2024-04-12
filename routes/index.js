@@ -8,6 +8,15 @@ const user_controller = require('../controllers/userController');
 /* GET home page. */
 router.get('/', message_controller.index);
 
+/* routes for creating and deleting messages */
+router.get('/message', message_controller.message_create_get);
+
+router.post('/message', message_controller.message_create_post);
+
+router.get('/delete-message', message_controller.message_delete_get);
+
+router.post('/delete-message', message_controller.message_delete_post);
+
 /* routes for getting and posting users such as for creating users, 
 logging them in, and changing the admin and membership attributes */
 
