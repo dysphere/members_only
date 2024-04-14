@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DateTime } = require("luxon");
 
 const Schema = mongoose.Schema;
 
@@ -8,5 +9,9 @@ const MessageSchema = new Schema({
     time_posted: {type: Date, required: true},
     text: {type: String, required: true},
 });
+
+MessageSchema.virtual("time_posted_formatted").get(function () {
+    return DateTime.fromJSDate(this.time_posted).toLocaleString(DateTime.DATETIME_FULL);
+  });
 
 module.exports = mongoose.model("Message", MessageSchema);

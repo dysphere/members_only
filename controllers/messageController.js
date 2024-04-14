@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
 exports.index = asyncHandler(async (req, res, next) => {
-    const messages = await Message.find().sort({time_posted: 1}).exec();
+    const messages = await Message.find().populate("user").sort({time_posted: 1}).exec();
     res.render("index", {
         title: "Members Only", 
         user: req.user,

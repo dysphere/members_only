@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=members-only:* npm run devstart",
-    "build-css": "postcss public/stylesheets/style.css -o public/stylesheets/output.css"
+    "build-css": "postcss public/stylesheets/style.css -o public/stylesheets/output.css -w",
+    "css-start": "concurrently \"npm run serverstart\" \"npm run build-css\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,6 +21,7 @@
     "express-session": "^1.18.0",
     "express-validator": "^7.0.1",
     "http-errors": "~1.6.3",
+    "luxon": "^3.4.4",
     "mongoose": "^8.3.0",
     "morgan": "~1.9.1",
     "passport": "^0.7.0",
