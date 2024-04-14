@@ -574,6 +574,9 @@ video {
 .pt-8 {
   padding-top: 2rem;
 }
+.pt-6 {
+  padding-top: 1.5rem;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;

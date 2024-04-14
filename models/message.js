@@ -15,7 +15,7 @@ MessageSchema.virtual("time_posted_formatted").get(function () {
   });
 
 MessageSchema.virtual("url").get(function () {
-    return `/${this.id}`;
+    return `/${this._id}`;
 });
 
 module.exports = mongoose.model("Message", MessageSchema);

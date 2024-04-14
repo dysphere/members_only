@@ -6,15 +6,22 @@
   </head>
   <body>
     <div>
-      <div></div>
+        <div class="flex flex-row justify-between">
+            <div class="pl-44 pt-8"><a href="/" class="text-xl">Home</a></div>
+            <div class="pt-8 flex flex-row gap-8 pr-44">
+              <a href="/sign-up" class="text-xl">Sign Up</a>
+              <a href="/log-in" class="text-xl">Log In</a>
+            </div>
+          </div>
+        <div class="flex justify-center pt-6">
         <form action="/sign-up" method="POST">
-            <div class="flex flex-col w-48">
+            <div class="flex flex-col w-48 items-center">
             <label for="first_name">First Name</label>
             <input name="first_name" type="text"/>
             <label for="last_name">Last Name</label>
             <input name="last_name" type="text"/>
             <label for="username">Username</label>
-            <input name="username" placeholder="username" type="text" />
+            <input name="username" type="text" />
             <label for="password">Password</label>
             <input name="password" type="password" />
             <label for="confirm_password">Confirm Password</label>
@@ -22,6 +29,7 @@
             <button>Sign Up</button>
             </div>
           </form>
+          </div>
           <% if (errors && errors.length > 0) { %>
             <ul>
               <% errors.forEach(function(error) { %>
