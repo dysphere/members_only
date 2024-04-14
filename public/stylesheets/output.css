@@ -549,6 +549,9 @@ video {
 .gap-y-36 {
   row-gap: 9rem;
 }
+.overflow-auto {
+  overflow: auto;
+}
 .border-2 {
   border-width: 2px;
 }

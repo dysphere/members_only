@@ -53,5 +53,6 @@ exports.message_delete_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.message_delete_post = asyncHandler(async (req, res, next) => {
-    res.send("Nothing here yet either");
+    await Message.findByIdAndDelete(req.params.id);
+    res.redirect("/");
 })

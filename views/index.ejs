@@ -7,40 +7,43 @@
   <body>
     <div>
       <% if (user && user.admin) {%>
-        <h1>WELCOME BACK <%= user.username %></h1>
         <div>
-          <div class="flex flex-row">
-            <div><a href="/">Home</a></div>
-            <div>
-              <a href="/sign-up">Sign Up</a>
-              <a href="/log-in">Log In</a>
+          <div class="flex flex-row justify-between">
+            <div class="pl-44 pt-8"><a href="/" class="text-xl">Home</a></div>
+            <div class="pt-8 flex flex-row gap-8 pr-44">
+              <a href="/log-out" class="text-xl">Log Out</a>
             </div>
           </div>
-          <div>
-            <div></div>
+          <div class="flex flex-col items-center lg:flex-row justify-center gap-8 pt-8">
+            <div class="flex flex-col justify-center gap-y-36">
+              <h1 class="text-2xl">Welcome back, admin!</h1>
+              <h1 class="text-2xl">A club where only members know everything about messages</h1>
+              <h1 class="text-2xl">However, as admin you can also delete messages</h1>
+            </div>
             <div>
-              <div>
-                <div>
-                  <div>
-                    <div>
+              <div class="flex flex-col items-center">
+                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto">
                       <% messages.forEach(function(message){ %>
-                        <div>
-                          <h1><%= message.title %></h1>
-                          <p></p>
-                          <p></p>
+                        <div class="border-solid border-black border-2 m-2">
+                          <h1 class="pl-2"><%= message.title %></h1>
+                          <p class="pl-2"><%= message.text %></p>
+                          <p class="pl-2">User: <%= message.user.username %> Date: <%= message.time_posted_formatted %></p>
+                          <form action="<%= message.url %>/delete-message" method="POST">
+                            <button type="submit" class="pl-2">Delete</button>
+                        </form>
                         </div>
                       <% }); %>
                     </div>
-                  </div>
-                </div>
-                <div>
+                <div class="border-solid border-black border-2 mt-0 w-[44rem]">
                   <form action="/message" method="POST">
-                    <div class="flex flex-col">
+                    <div class="flex flex-col m-2">
                     <label for="title">Title</label>
-                    <input name="title" id="title" type="text"/>
+                    <input name="title" id="title" type="text" class="border-solid border-black border-2 w-[42.75rem]"/>
                     <label for="text">Text</label>
-                    <textarea name="text" id="text"></textarea>
-                    <button>Submit</button>
+                    <div class="flex flex-row">
+                    <textarea name="text" id="text" class="border-solid border-black border-2 w-[38rem]"></textarea>
+                    <button class="w-[4rem]">Submit</button>
+                    </div>
                     </div>
                   </form>
                 </div>
@@ -48,7 +51,6 @@
             </div>
           </div>
           </div>
-        <a href="/log-out">LOG OUT</a>
       <% } else if (user && user.membership_status) {%>
         <div>
           <div class="flex flex-row justify-between">
@@ -64,7 +66,7 @@
             </div>
             <div>
               <div class="flex flex-col items-center">
-                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2">
+                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto">
                       <% messages.forEach(function(message){ %>
                         <div class="border-solid border-black border-2 m-2">
                           <h1 class="pl-2"><%= message.title %></h1>
@@ -107,7 +109,7 @@
             </div>
             <div>
               <div class="flex flex-col items-center">
-                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2">
+                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto">
                       <% messages.forEach(function(message){ %>
                         <div class="border-solid border-black border-2 m-2">
                           <h1 class="pl-2"><%= message.title %></h1>
@@ -150,7 +152,7 @@
           </div>
           <div>
             <div class="flex flex-col items-center">
-                  <div class="w-[44rem] h-[36rem] border-solid border-black border-2">
+                  <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto">
                     <% messages.forEach(function(message){ %>
                       <div class="border-solid border-black border-2 m-2">
                         <h1 class="pl-2"><%= message.title %></h1>
