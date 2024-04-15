@@ -7,126 +7,126 @@
   <body>
     <div>
       <% if (user && user.admin) {%>
-        <div>
-          <div class="flex flex-row justify-between">
-            <div class="pl-44 pt-8"><a href="/" class="text-xl">Home</a></div>
+        <div class="h-screen">
+          <div class="flex flex-row justify-between bg-cyan-600 pb-8 items-center">
+            <div class="pl-44 pt-8"><a href="/" class="bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid text-xl">Home</a></div>
             <div class="pt-8 flex flex-row gap-8 pr-44">
-              <a href="/log-out" class="text-xl">Log Out</a>
+              <a href="/log-out" class="text-xl bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid">Log Out</a>
             </div>
           </div>
-          <div class="flex flex-col items-center lg:flex-row justify-center gap-8 pt-8">
-            <div class="flex flex-col justify-center gap-y-36">
-              <h1 class="text-2xl">Welcome back, admin!</h1>
-              <h1 class="text-2xl">A club where only members know everything about messages</h1>
-              <h1 class="text-2xl">However, as admin you can also delete messages</h1>
+          <div class="flex flex-col items-center lg:flex-row justify-center gap-8 pt-8 bg-cyan-400 h-[95%] lg:h-[90%]">
+            <div class="flex flex-col justify-center gap-y-36 items-center">
+              <h1 class="text-4xl text-orange-800">Welcome back, admin!</h1>
+              <h1 class="text-4xl text-orange-800">A club where only members know everything about messages</h1>
+              <h1 class="text-4xl text-orange-800">However, as admin you can also delete messages</h1>
             </div>
             <div>
               <div class="flex flex-col items-center">
-                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto">
+                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto bg-orange-800">
                       <% messages.forEach(function(message){ %>
-                        <div class="border-solid border-black border-2 m-2">
-                          <h1 class="pl-2"><%= message.title %></h1>
-                          <p class="pl-2"><%= message.text %></p>
-                          <p class="pl-2">User: <%= message.user.username %> Date: <%= message.time_posted_formatted %></p>
+                        <div class="border-solid border-black border-2 m-2 bg-yellow-300">
+                          <h1 class="pl-2 text-orange-800"><%= message.title %></h1>
+                          <p class="pl-2 text-orange-800"><%= message.text %></p>
+                          <p class="pl-2 text-orange-800">User: <%= message.user.username %> Date: <%= message.time_posted_formatted %></p>
                           <form action="<%= message.url %>/delete-message" method="POST">
-                            <button type="submit" class="pl-2">Delete</button>
+                            <button type="submit" class="px-2 bg-red-600 m-1 rounded-lg text-white">Delete</button>
                         </form>
                         </div>
                       <% }); %>
                     </div>
-                <div class="border-solid border-black border-2 mt-0 w-[44rem]">
-                  <form action="/message" method="POST">
-                    <div class="flex flex-col m-2">
-                    <label for="title">Title</label>
-                    <input name="title" id="title" type="text" class="border-solid border-black border-2 w-[42.75rem]"/>
-                    <label for="text">Text</label>
-                    <div class="flex flex-row">
-                    <textarea name="text" id="text" class="border-solid border-black border-2 w-[38rem]"></textarea>
-                    <button class="w-[4rem]">Submit</button>
+                    <div class="border-solid border-black border-2 mt-0 w-[44rem] bg-amber-500">
+                      <form action="/message" method="POST">
+                        <div class="flex flex-col m-2 items-center">
+                        <label for="title" class="text-orange-800 m-1">Title</label>
+                        <input name="title" id="title" type="text" class="border-solid border-black border-2 w-[42.75rem] bg-yellow-300"/>
+                        <label for="text" class="text-orange-800 m-1">Text</label>
+                        <div class="flex flex-row">
+                        <textarea name="text" id="text" class="border-solid border-black border-2 w-[38rem] bg-yellow-300"></textarea>
+                        <button class="w-[4rem] bg-yellow-300 p-0.5 ml-2 rounded-lg text-orange-800 border-2 border-orange-800 border-solid">Submit</button>
+                        </div>
+                        </div>
+                      </form>
                     </div>
-                    </div>
-                  </form>
-                </div>
               </div>
             </div>
           </div>
           </div>
       <% } else if (user && user.membership_status) {%>
-        <div>
-          <div class="flex flex-row justify-between">
-            <div class="pl-44 pt-8"><a href="/" class="text-xl">Home</a></div>
+        <div class="h-screen">
+          <div class="flex flex-row justify-between bg-cyan-600 pb-8 items-center">
+            <div class="pl-44 pt-8"><a href="/" class="bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid text-xl">Home</a></div>
             <div class="pt-8 flex flex-row gap-8 pr-44">
-              <a href="/log-out" class="text-xl">Log Out</a>
+              <a href="/log-out" class="text-xl bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid">Log Out</a>
             </div>
           </div>
-          <div class="flex flex-col items-center lg:flex-row justify-center gap-8 pt-8">
+          <div class="flex flex-col items-center lg:flex-row justify-center gap-8 pt-8 bg-cyan-400 h-[95%] lg:h-[90%]">
             <div class="flex flex-col justify-center gap-y-36">
-              <h1 class="text-2xl">A club where only members know everything about messages</h1>
-              <h1 class="text-2xl">Welcome to the club!</h1>
+              <h1 class="text-4xl text-orange-800">A club where only members know everything about messages</h1>
+              <h1 class="text-4xl text-orange-800">Welcome to the club!</h1>
             </div>
             <div>
               <div class="flex flex-col items-center">
-                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto">
+                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto bg-orange-800">
                       <% messages.forEach(function(message){ %>
-                        <div class="border-solid border-black border-2 m-2">
-                          <h1 class="pl-2"><%= message.title %></h1>
-                          <p class="pl-2"><%= message.text %></p>
-                          <p class="pl-2">User: <%= message.user.username %> Date: <%= message.time_posted_formatted %></p>
+                        <div class="border-solid border-black border-2 m-2 bg-yellow-300">
+                          <h1 class="pl-2 text-orange-800"><%= message.title %></h1>
+                          <p class="pl-2 text-orange-800"><%= message.text %></p>
+                          <p class="pl-2 text-orange-800">User: <%= message.user.username %> Date: <%= message.time_posted_formatted %></p>
                         </div>
                       <% }); %>
                     </div>
-                <div class="border-solid border-black border-2 mt-0 w-[44rem]">
-                  <form action="/message" method="POST">
-                    <div class="flex flex-col m-2">
-                    <label for="title">Title</label>
-                    <input name="title" id="title" type="text" class="border-solid border-black border-2 w-[42.75rem]"/>
-                    <label for="text">Text</label>
-                    <div class="flex flex-row">
-                    <textarea name="text" id="text" class="border-solid border-black border-2 w-[38rem]"></textarea>
-                    <button class="w-[4rem]">Submit</button>
+                    <div class="border-solid border-black border-2 mt-0 w-[44rem] bg-amber-500">
+                      <form action="/message" method="POST">
+                        <div class="flex flex-col m-2 items-center">
+                        <label for="title" class="text-orange-800 m-1">Title</label>
+                        <input name="title" id="title" type="text" class="border-solid border-black border-2 w-[42.75rem] bg-yellow-300"/>
+                        <label for="text" class="text-orange-800 m-1">Text</label>
+                        <div class="flex flex-row">
+                        <textarea name="text" id="text" class="border-solid border-black border-2 w-[38rem] bg-yellow-300"></textarea>
+                        <button class="w-[4rem] bg-yellow-300 p-0.5 ml-2 rounded-lg text-orange-800 border-2 border-orange-800 border-solid">Submit</button>
+                        </div>
+                        </div>
+                      </form>
                     </div>
-                    </div>
-                  </form>
-                </div>
               </div>
             </div>
           </div>
           </div>
       <% } else if (user) {%>
-        <div>
-          <div class="flex flex-row justify-between">
-            <div class="pl-44 pt-8"><a href="/" class="text-xl">Home</a></div>
+        <div class="h-screen">
+          <div class="flex flex-row justify-between bg-cyan-600 pb-8 items-center">
+            <div class="pl-44 pt-8"><a href="/" class="bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid text-xl">Home</a></div>
             <div class="pt-8 flex flex-row gap-8 pr-44">
-              <a href="/secret" class="text-xl">Become a Member</a>
-              <a href="/log-out" class="text-xl">Log Out</a>
+              <a href="/secret" class="bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid text-xl">Become a Member</a>
+              <a href="/log-out" class="bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid text-xl">Log Out</a>
             </div>
           </div>
-          <div class="flex flex-col items-center lg:flex-row justify-center gap-8 pt-8">
-            <div class="flex flex-col justify-center gap-y-36">
-              <h1 class="text-2xl">A club where only members know everything about messages</h1>
-              <h1 class="text-2xl">Sign up now to become a member</h1>
-              <h1 class="text-2xl">Join now</h1>
+          <div class="flex flex-col items-center lg:flex-row justify-center gap-8 pt-8 bg-cyan-400 h-[95%] lg:h-[90%]">
+            <div class="flex flex-col items-center justify-center gap-y-36">
+              <h1 class="text-4xl text-orange-800">A club where only members know everything about messages</h1>
+              <h1 class="text-4xl text-orange-800">Sign up now to become a member</h1>
+              <h1 class="text-4xl text-orange-800">Join now</h1>
             </div>
             <div>
               <div class="flex flex-col items-center">
-                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto">
+                    <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto bg-orange-800">
                       <% messages.forEach(function(message){ %>
-                        <div class="border-solid border-black border-2 m-2">
-                          <h1 class="pl-2"><%= message.title %></h1>
-                          <p class="pl-2"><%= message.text %></p>
-                          <p class="pl-2">User: ***** Date: *****</p>
+                        <div class="border-solid border-black border-2 m-2 bg-yellow-300">
+                          <h1 class="pl-2 text-orange-800"><%= message.title %></h1>
+                          <p class="pl-2 text-orange-800"><%= message.text %></p>
+                          <p class="pl-2 text-orange-800">User: ***** Date: *****</p>
                         </div>
                       <% }); %>
                     </div>
-                <div class="border-solid border-black border-2 mt-0 w-[44rem]">
+                <div class="border-solid border-black border-2 mt-0 w-[44rem] bg-amber-500">
                   <form action="/message" method="POST">
-                    <div class="flex flex-col m-2">
-                    <label for="title">Title</label>
-                    <input name="title" id="title" type="text" class="border-solid border-black border-2 w-[42.75rem]"/>
-                    <label for="text">Text</label>
+                    <div class="flex flex-col m-2 items-center">
+                    <label for="title" class="text-orange-800 m-1">Title</label>
+                    <input name="title" id="title" type="text" class="border-solid border-black border-2 w-[42.75rem] bg-yellow-300"/>
+                    <label for="text" class="text-orange-800 m-1">Text</label>
                     <div class="flex flex-row">
-                    <textarea name="text" id="text" class="border-solid border-black border-2 w-[38rem]"></textarea>
-                    <button class="w-[4rem]">Submit</button>
+                    <textarea name="text" id="text" class="border-solid border-black border-2 w-[38rem] bg-yellow-300"></textarea>
+                    <button class="w-[4rem] bg-yellow-300 p-0.5 ml-2 rounded-lg text-orange-800 border-2 border-orange-800 border-solid">Submit</button>
                     </div>
                     </div>
                   </form>
@@ -137,7 +137,7 @@
           </div>
       <% } else { %>
         <div class="h-screen">
-          <div class="flex flex-row justify-between bg-cyan-600 pb-8">
+          <div class="flex flex-row justify-between bg-cyan-600 pb-8 items-center">
             <div class="pl-44 pt-8"><a href="/" class="bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid text-xl">Home</a></div>
             <div class="pt-8 flex flex-row gap-8 pr-44">
               <a href="/sign-up" class="text-xl bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid">Sign Up</a>
@@ -146,30 +146,30 @@
           </div>
         <div class="flex flex-col items-center lg:flex-row justify-center gap-8 pt-8 bg-cyan-400 h-[95%] lg:h-[90%]">
           <div class="flex flex-col items-center justify-center gap-y-36">
-            <h1 class="text-2xl text-orange-800">A club where only members know everything about messages</h1>
-            <h1 class="text-2xl text-orange-800">Sign up now to begin sending messages</h1>
-            <h1 class="text-2xl text-orange-800">Join now</h1>
+            <h1 class="text-4xl text-orange-800">A club where only members know everything about messages</h1>
+            <h1 class="text-4xl text-orange-800">Sign up now to begin sending messages</h1>
+            <h1 class="text-4xl text-orange-800">Join now</h1>
           </div>
           <div>
             <div class="flex flex-col items-center">
-                  <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto">
+                  <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto bg-orange-800">
                     <% messages.forEach(function(message){ %>
-                      <div class="border-solid border-black border-2 m-2">
-                        <h1 class="pl-2"><%= message.title %></h1>
-                        <p class="pl-2"><%= message.text %></p>
-                        <p class="pl-2">User: ***** Date: *****</p>
+                      <div class="border-solid border-black border-2 m-2 bg-yellow-300">
+                        <h1 class="pl-2 text-orange-800"><%= message.title %></h1>
+                        <p class="pl-2 text-orange-800"><%= message.text %></p>
+                        <p class="pl-2 text-orange-800">User: ***** Date: *****</p>
                       </div>
                     <% }); %>
                   </div>
-              <div class="border-solid border-black border-2 mt-0 w-[44rem]">
+              <div class="border-solid border-black border-2 mt-0 w-[44rem] bg-amber-500">
                 <form action="/message" method="POST">
                   <div class="flex flex-col m-2 items-center">
-                  <label for="title">Title</label>
-                  <input name="title" id="title" type="text" disabled class="border-solid border-black border-2 w-[42.75rem]"/>
-                  <label for="text">Text</label>
+                  <label for="title" class="text-orange-800 m-1">Title</label>
+                  <input name="title" id="title" type="text" disabled class="border-solid border-black border-2 w-[42.75rem] bg-yellow-300"/>
+                  <label for="text" class="text-orange-800 m-1">Text</label>
                   <div class="flex flex-row">
-                  <textarea name="text" id="text" disabled class="border-solid border-black border-2 w-[38rem]"></textarea>
-                  <button class="w-[4rem]" disabled>Submit</button>
+                  <textarea name="text" id="text" disabled class="border-solid border-black border-2 w-[38rem] bg-yellow-300"></textarea>
+                  <button class="w-[4rem] bg-yellow-300 p-0.5 ml-2 rounded-lg text-orange-800 border-2 border-orange-800 border-solid" disabled>Submit</button>
                   </div>
                   </div>
                 </form>
