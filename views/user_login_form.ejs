@@ -5,22 +5,22 @@
     <link rel='stylesheet' href='/stylesheets/output.css' />
   </head>
   <body>
-    <div>
-        <div class="flex flex-row justify-between">
-            <div class="pl-44 pt-8"><a href="/" class="text-xl">Home</a></div>
+    <div class="h-screen">
+        <div class="flex flex-row justify-between bg-cyan-600 pb-8">
+            <div class="pl-44 pt-8"><a href="/" class="bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid text-xl">Home</a></div>
             <div class="pt-8 flex flex-row gap-8 pr-44">
-              <a href="/sign-up" class="text-xl">Sign Up</a>
-              <a href="/log-in" class="text-xl">Log In</a>
+              <a href="/sign-up" class="text-xl bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid">Sign Up</a>
+              <a href="/log-in" class="text-xl bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid">Log In</a>
             </div>
           </div>
-        <div class="flex justify-center pt-6">
+        <div class="flex justify-center pt-24 bg-cyan-400 h-[95%] lg:h-[90%]">
         <form action="/log-in" method="POST">
-            <div class="flex flex-col items-center w-48">
-            <label for="username">Username</label>
-            <input name="username" type="text" />
-            <label for="password">Password</label>
-            <input name="password" type="password" />
-            <button>Log In</button>
+            <div class="flex flex-col items-center border-2 border-black border-solid w-96">
+            <label for="username" class="m-2 text-orange-800">Username</label>
+            <input name="username" id="username" type="text" class="border-2 border-black border-solid"/>
+            <label for="password" class="m-2 text-orange-800">Password</label>
+            <input name="password" id="password" type="password" class="border-2 border-black border-solid"/>
+            <button class="bg-yellow-300 p-1 m-3 rounded-lg text-orange-600 border-2 border-orange-800 border-solid">Log In</button>
             </div>
           </form>
         </div>

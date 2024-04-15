@@ -136,19 +136,19 @@
           </div>
           </div>
       <% } else { %>
-        <div>
-        <div class="flex flex-row justify-between">
-          <div class="pl-44 pt-8"><a href="/" class="text-xl">Home</a></div>
-          <div class="pt-8 flex flex-row gap-8 pr-44">
-            <a href="/sign-up" class="text-xl">Sign Up</a>
-            <a href="/log-in" class="text-xl">Log In</a>
+        <div class="h-screen">
+          <div class="flex flex-row justify-between bg-cyan-600 pb-8">
+            <div class="pl-44 pt-8"><a href="/" class="bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid text-xl">Home</a></div>
+            <div class="pt-8 flex flex-row gap-8 pr-44">
+              <a href="/sign-up" class="text-xl bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid">Sign Up</a>
+              <a href="/log-in" class="text-xl bg-yellow-300 p-2 rounded-lg text-orange-600 border-2 border-orange-800 border-solid">Log In</a>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-col items-center lg:flex-row justify-center gap-8 pt-8">
-          <div class="flex flex-col justify-center gap-y-36">
-            <h1 class="text-2xl">A club where only members know everything about messages</h1>
-            <h1 class="text-2xl">Sign up now to begin sending messages</h1>
-            <h1 class="text-2xl">Join now</h1>
+        <div class="flex flex-col items-center lg:flex-row justify-center gap-8 pt-8 bg-cyan-400 h-[95%] lg:h-[90%]">
+          <div class="flex flex-col items-center justify-center gap-y-36">
+            <h1 class="text-2xl text-orange-800">A club where only members know everything about messages</h1>
+            <h1 class="text-2xl text-orange-800">Sign up now to begin sending messages</h1>
+            <h1 class="text-2xl text-orange-800">Join now</h1>
           </div>
           <div>
             <div class="flex flex-col items-center">
@@ -163,7 +163,7 @@
                   </div>
               <div class="border-solid border-black border-2 mt-0 w-[44rem]">
                 <form action="/message" method="POST">
-                  <div class="flex flex-col m-2">
+                  <div class="flex flex-col m-2 items-center">
                   <label for="title">Title</label>
                   <input name="title" id="title" type="text" disabled class="border-solid border-black border-2 w-[42.75rem]"/>
                   <label for="text">Text</label>
