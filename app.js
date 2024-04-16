@@ -12,6 +12,8 @@ const User = require('./models/user')
 require('dotenv').config();
 
 const indexRouter = require('./routes/index');
+const compression = require("compression");
+const helmet = require("helmet");
 
 const mongoDb = process.env.MONGODB_URI;
 mongoose.connect(mongoDb);
@@ -66,6 +68,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(compression()); // Compress all routes
+app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

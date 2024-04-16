@@ -531,6 +531,9 @@ video {
 .w-48 {
   width: 12rem;
 }
+.w-80 {
+  width: 20rem;
+}
 .w-96 {
   width: 24rem;
 }
@@ -545,18 +548,6 @@ video {
 }
 .w-\[4rem\] {
   width: 4rem;
-}
-.w-\[\] {
-  width: ;
-}
-.w-\[108rem\] {
-  width: 108rem;
-}
-.w-64 {
-  width: 16rem;
-}
-.w-80 {
-  width: 20rem;
 }
 .flex-row {
   flex-direction: row;
