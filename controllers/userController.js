@@ -1,5 +1,4 @@
-const Message = require('../models/message');
-const User = require('../models/user');
+const db = require("../db/queries");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const asyncHandler = require("express-async-handler");

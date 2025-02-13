@@ -7,18 +7,13 @@ const session = require("express-session");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const mongoose = require("mongoose");
-const User = require('./models/user')
+const db = require("./db/queries");
+
 require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const compression = require("compression");
 const helmet = require("helmet");
-
-const mongoDb = process.env.MONGODB_URI;
-mongoose.connect(mongoDb);
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "mongo connection error"));
 
 const app = express();
 
@@ -77,6 +72,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

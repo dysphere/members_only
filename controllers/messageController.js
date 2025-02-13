@@ -1,5 +1,4 @@
-const Message = require('../models/message');
-const User = require('../models/user');
+const db = require("../db/queries");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
