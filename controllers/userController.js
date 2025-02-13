@@ -49,15 +49,7 @@ exports.user_create_post = [
                 }
                 // otherwise, store hashedPassword in DB
                 else {
-                    const user = new User({
-                        first_name: req.body.first_name,
-                        last_name: req.body.last_name,
-                        username: req.body.username,
-                        password: hashedPassword,
-                        membership_status: false,
-                        admin: false,
-                      });
-                      const result = await user.save();
+                      await db.insertUser(req.body.first_name, req.body.last_name, req.body.username, hashedPassword);
                       res.redirect("/");
                 }
               });
@@ -93,11 +85,7 @@ exports.user_secret_get = asyncHandler(async (req, res, next) =>
 exports.user_secret_post = asyncHandler(async (req, res, next) =>
 {
     if (req.body.secret === "turing") {
-        let user = await User.findByIdAndUpdate(
-            req.user.id, 
-            {$set: {membership_status: true}}, 
-            {new: true}
-        );
+        await db.updateMembership(req.user.id);
         res.redirect("/");
     }
     else {
@@ -115,11 +103,7 @@ exports.user_admin_get = asyncHandler(async (req, res, next) =>
 
 exports.user_admin_post = asyncHandler(async (req, res, next) => {
     if (req.body.admin === "admin") {
-        let user = await User.findByIdAndUpdate(
-            req.user.id, 
-            {$set: {admin: true}}, 
-            {new: true}
-        );
+        await db.updateAdmin(req.user.id);
         res.redirect("/");
     }
     else {

@@ -16,7 +16,7 @@ async function insertUser(first_name, last_name, username, password) {
   }
 
 async function getAllMessages() {
-  const messages = await pool.query("SELECT * FROM messages ORDER BY time_posted DESC");
+  const messages = await pool.query("SELECT * FROM messages JOIN users ON messages.user_id = users.id ORDER BY time_posted DESC");
   return messages.rows;
 }
 
@@ -31,10 +31,12 @@ async function deleteMessage(id) {
 }
 
 async function updateAdmin(id) {
-    
+    await pool.query("UPDATE users SET admin = true WHERE id=$1", [id]);
 }
 
-async function updateMembership(id) {}
+async function updateMembership(id) {
+    await pool.query("UPDATE users SET membership_status = true WHERE id=$1", [id]);
+}
 
 module.exports = {
 findUser,

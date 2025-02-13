@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -8,8 +10,6 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const db = require("./db/queries");
-
-require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const compression = require("compression");
@@ -30,7 +30,7 @@ app.use(express.static('public'));
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
-      const user = await User.findOne({ username: username });
+      const user = await db.findUser(username);
       const match = await bcrypt.compare(password, user.password);
       if (!user) {
         return done(null, false, { message: "Incorrect username" });
@@ -51,7 +51,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = await User.findById(id);
+    const user = await db.findUserById(id);
     done(null, user);
   } catch(err) {
     done(err);

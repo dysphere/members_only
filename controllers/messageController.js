@@ -3,7 +3,7 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
 exports.index = asyncHandler(async (req, res, next) => {
-    const messages = await Message.find().populate("user").sort({time_posted: 1}).exec();
+    const messages = await db.getAllMessages();
     res.render("index", {
         title: "Members Only", 
         user: req.user,
@@ -32,13 +32,7 @@ exports.message_create_post = [
         }
 
         try {
-            const message = new Message({
-                title: req.body.title,
-                user: req.user,
-                time_posted: new Date(),
-                text: req.body.text,
-            })
-            const result = await message.save();
+            await db.insertMessage(req.body.title, req.user.id, req.body.text);
             res.redirect("/");
         }
         catch(error) {
@@ -52,6 +46,6 @@ exports.message_delete_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.message_delete_post = asyncHandler(async (req, res, next) => {
-    await Message.findByIdAndDelete(req.params.id);
+    await db.deleteMessage(req.params.id);
     res.redirect("/");
 })
