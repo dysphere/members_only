@@ -1,4 +1,5 @@
 const db = require("../db/queries");
+const { decode } = require("html-entities");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
@@ -7,6 +8,7 @@ exports.index = asyncHandler(async (req, res, next) => {
     res.render("index", {
         title: "Members Only", 
         user: req.user,
+        decode,
         messages: messages});
 })
 

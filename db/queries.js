@@ -16,7 +16,7 @@ async function insertUser(first_name, last_name, username, password) {
   }
 
 async function getAllMessages() {
-  const messages = await pool.query("SELECT * FROM messages JOIN users ON messages.user_id = users.id ORDER BY time_posted DESC");
+  const messages = await pool.query("SELECT * FROM messages JOIN users ON messages.user_id = users.id ORDER BY time_posted ASC");
   return messages.rows;
 }
 

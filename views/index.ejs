@@ -25,10 +25,10 @@
                     <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto bg-orange-800">
                       <% messages.forEach(function(message){ %>
                         <div class="border-solid border-black border-2 m-2 bg-yellow-300">
-                          <h1 class="pl-2 text-orange-800"><%= message.title %></h1>
-                          <p class="pl-2 text-orange-800"><%= message.text %></p>
-                          <p class="pl-2 text-orange-800">User: <%= message.user.username %> Date: <%= message.time_posted_formatted %></p>
-                          <form action="<%= message.url %>/delete-message" method="POST">
+                          <h1 class="pl-2 text-orange-800"><%= decode(message.title) %></h1>
+                          <p class="pl-2 text-orange-800"><%= decode(message.text) %></p>
+                          <p class="pl-2 text-orange-800">User: <%= message.username %> Date: <%= message.time_posted %></p>
+                          <form action="<%= message.id %>/delete-message" method="POST">
                             <button type="submit" class="px-2 bg-red-600 m-1 rounded-lg text-white">Delete</button>
                         </form>
                         </div>
@@ -69,9 +69,9 @@
                     <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto bg-orange-800">
                       <% messages.forEach(function(message){ %>
                         <div class="border-solid border-black border-2 m-2 bg-yellow-300">
-                          <h1 class="pl-2 text-orange-800"><%= message.title %></h1>
-                          <p class="pl-2 text-orange-800"><%= message.text %></p>
-                          <p class="pl-2 text-orange-800">User: <%= message.user.username %> Date: <%= message.time_posted_formatted %></p>
+                          <h1 class="pl-2 text-orange-800"><%= decode(message.title) %></h1>
+                          <p class="pl-2 text-orange-800"><%= decode(message.text) %></p>
+                          <p class="pl-2 text-orange-800">User: <%= message.username %> Date: <%= message.time_posted %></p>
                         </div>
                       <% }); %>
                     </div>
@@ -112,8 +112,8 @@
                     <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto bg-orange-800">
                       <% messages.forEach(function(message){ %>
                         <div class="border-solid border-black border-2 m-2 bg-yellow-300">
-                          <h1 class="pl-2 text-orange-800"><%= message.title %></h1>
-                          <p class="pl-2 text-orange-800"><%= message.text %></p>
+                          <h1 class="pl-2 text-orange-800"><%= decode(message.title) %></h1>
+                          <p class="pl-2 text-orange-800"><%= decode(message.text) %></p>
                           <p class="pl-2 text-orange-800">User: ***** Date: *****</p>
                         </div>
                       <% }); %>
@@ -155,8 +155,8 @@
                   <div class="w-[44rem] h-[36rem] border-solid border-black border-2 overflow-auto bg-orange-800">
                     <% messages.forEach(function(message){ %>
                       <div class="border-solid border-black border-2 m-2 bg-yellow-300">
-                        <h1 class="pl-2 text-orange-800"><%= message.title %></h1>
-                        <p class="pl-2 text-orange-800"><%= message.text %></p>
+                        <h1 class="pl-2 text-orange-800"><%= decode(message.title) %></h1>
+                        <p class="pl-2 text-orange-800"><%= decode(message.text) %></p>
                         <p class="pl-2 text-orange-800">User: ***** Date: *****</p>
                       </div>
                     <% }); %>
